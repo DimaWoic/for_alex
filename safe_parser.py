@@ -37,7 +37,10 @@ class SafeParser():
             title = soup.find('h1', class_='product-name').text.replace('\n', '')
             old_price = soup.find('span', class_='compare-at-price nowrap').text
             new_price = soup.find('span', class_='bk_price price nowrap red').text
-            print(new_price)
+            price = ''
+            for symbol in new_price:
+                if symbol.isdigit():
+                    price += symbol
         self.driver.close()
 
 
